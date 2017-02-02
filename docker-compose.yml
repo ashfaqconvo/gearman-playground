@@ -1,0 +1,9 @@
+version: "2"
+services:
+        gearman:
+                image: "lysender/ubuntu-gearman"
+        worker:
+                image: "lysender/ubuntu-gearman-worker-php"
+                volumes:
+                        - ./:/var/www/scripts/
+                entrypoint: "php /var/www/scripts/worker.php"
